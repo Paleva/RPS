@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Page Title</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice(){
+            const choices = ["rock", "paper", "scissors"];
+            return choices[Math.floor(Math.random() * choices.length)];
+        }
+        function getHumanChoice(){
+            let choice = prompt("Rock, Paper, or Scissors?");
+            choice = choice.toLowerCase();
+            return choice;
+        }
+        function playRound(humanChoice, computerChoice){
+            if(humanChoice === computerChoice){
+                return "Tie";
+            } 
+            else if(humanChoice === "rock" && computerChoice === "scissors"){
+                humanScore++;
+                return "You win";
+            } 
+            else if(humanChoice === "rock" && computerChoice === "paper"){
+                computerScore++;
+                return "You lose";
+            } 
+            else if(humanChoice === "paper" && computerChoice === "rock"){
+                humanScore++;
+                return "You win";
+            } 
+            else if(humanChoice === "paper" && computerChoice === "scissors"){
+                computerScore++;
+                return "You lose";
+            } 
+            else if(humanChoice === "scissors" && computerChoice === "paper"){
+                humanScore++;
+                return "You win";
+            } 
+            else if(humanChoice === "scissors" && computerChoice === "rock"){
+                computerScore++;
+                return "You lose";
+            }
+            else{
+                return "Invalid choice";
+            }
+        }
+        let humanScore = 0;
+        let computerScore = 0;
+        console.log(playRound(getHumanChoice(), getComputerChoice()), "Computer: " + computerScore, "Human: " + humanScore);
+    </script>
+</body>
+</html>
